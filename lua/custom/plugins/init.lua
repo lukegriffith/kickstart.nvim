@@ -39,13 +39,7 @@ return {
       'nvim-tree/nvim-web-devicons', -- optional dependency
     },
   },
-  { 'catppuccin/nvim', name = 'catppuccin' },
-  {
-    'LazyVim/LazyVim',
-    opts = {
-      colorscheme = 'catppuccin',
-    },
-  },
+  { 'catppuccin/nvim', name = 'TokyoNight' },
   {
     'folke/todo-comments.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
@@ -59,6 +53,13 @@ return {
     'github/copilot.vim',
   },
   {
-    'tpope/vim-sleuth',
+    'pluffie/neoproj',
+    url = 'https://github.com/lukegriffith/neoproj',
+    cmd = { 'ProjectOpen', 'ProjectNew' },
+    config = function()
+      require('neoproj').setup {
+        project_path = '/Users/lukegriffith/dev',
+      }
+    end,
   },
 }
