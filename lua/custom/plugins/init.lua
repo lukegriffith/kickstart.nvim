@@ -55,6 +55,7 @@ return {
   {
     'pluffie/neoproj',
     url = 'https://github.com/lukegriffith/neoproj',
+    pin = false,
     cmd = { 'ProjectOpen', 'ProjectNew' },
     config = function()
       require('neoproj').setup {
