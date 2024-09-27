@@ -255,6 +255,8 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- WARN: nvim tree does not appear to work
 -- vim.keymap.set('n', '<leader>e', vim.cmd.NvimTreeToggle, { desc = 'Toggle [E]xplorer' })
 
+vim.keymap.set('n', '<S-h>', '<cmd>bprev<CR>')
+vim.keymap.set('n', '<S-l>', '<cmd>bnext<CR>')
 -- END CUSTOM KEYMAPS
 
 -- [[ Basic Autocommands ]]
@@ -282,8 +284,6 @@ if not vim.uv.fs_stat(lazypath) then
   end
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
-
-vim.opt.runtimepath:prepend(vim.fn.expand '$HOME/.local/TSParsers')
 
 -- [[ Configure and install plugins ]]
 --
@@ -925,7 +925,7 @@ require('lazy').setup({
     opts = {
       ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'go', 'yaml' },
       -- Autoinstall languages that are not installed
-      auto_install = true,
+      auto_install = false,
       highlight = {
         enable = true,
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
@@ -934,7 +934,6 @@ require('lazy').setup({
         additional_vim_regex_highlighting = { 'ruby' },
       },
       indent = { enable = true, disable = { 'ruby' } },
-      parser_install_dir = vim.fn.expand '$HOME/.local/TSParsers',
     },
     config = function(_, opts)
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
