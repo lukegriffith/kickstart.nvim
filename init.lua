@@ -257,6 +257,8 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 vim.keymap.set('n', '<S-h>', '<cmd>bprev<CR>')
 vim.keymap.set('n', '<S-l>', '<cmd>bnext<CR>')
+
+vim.keymap.set('n', 'K', vim.lsp.buf.hover)
 -- END CUSTOM KEYMAPS
 
 -- [[ Basic Autocommands ]]
